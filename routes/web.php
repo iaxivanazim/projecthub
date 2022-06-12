@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\projectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('about');
-});
+Route::get('/',[projectController::class, 'index']);
 
 Route::get('/about', function () {
     return view('about');
 });
+
+
+Route::get('projectcreate',[projectController::class, 'create']);
+Route::post('projectstore',[projectController::class, 'store']);
